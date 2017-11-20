@@ -29,7 +29,7 @@ class GearsController < ApplicationController
     if @gear.save?
       redirect_to "pages#home" # needs to be changed when routes are added
     else
-      render 'new'
+      render 'edit'
     end
   end
 
