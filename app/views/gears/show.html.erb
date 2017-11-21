@@ -1,0 +1,16 @@
+
+<div class="container">
+  <div>
+    <%= image_tag "mb-#{rand(1..5)}.jpg"%>
+  </div>
+  <h1><%= @gear.name%></h1>
+  <ul>
+
+   <li> <h3> Description: <%= @gear.description %></h3></li>
+   <li> <h3> Size: <%= @gear.size %></h3></li>
+  </ul>
+    <div class="link">
+    <%= link_to "Book it", booking_path(@gear), {class: "btn btn-primary"}  %>
+    <%= link_to "Back", gears_path, {class: "btn btn-info"} %>
+  </div>
+</div>

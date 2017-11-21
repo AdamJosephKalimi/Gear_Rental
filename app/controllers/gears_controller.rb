@@ -2,7 +2,7 @@ class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gear = Gear.all
+    @gears = Gear.all
   end
 
   def new
