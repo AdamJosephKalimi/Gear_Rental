@@ -1,0 +1,10 @@
+<%= simple_form_for @gear do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :description %>
+  <%= f.input :size %>
+  <%= f.input :address %>
+  <%= f.association :bookings %>
+  <%= f.hidden :user_id, value: @user.id %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,7 @@
+<%= simple_form_for [@booking, @review] do |f| %>
+  <%= f.input :gear_content %>
+  <%= f.input :user_content %>
+  <%= f.association :bookings %>
+  <%= f.hidden :booking_id, value: @booking.id %>
+  <%= f.button :submit %>
+<% end %>
