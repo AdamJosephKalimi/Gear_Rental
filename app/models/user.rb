@@ -4,19 +4,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
+ # Validations ==========================================
   has_many :reviews, through: :bookings
   has_many :bookings
   has_many :gears
-
   # username
-  validates :username, presence: true
-  # validates :username, length: { minimum: 6 }
-  validates :username, uniqueness: true
+  # validates :username, presence: true
+  # # validates :username, length: { minimum: 6 }
+  # validates :username, uniqueness: true
+  # # phone_number
+  # validates :phone_number, presence: true
+  # validates :phone_number, length: { minimum: 6 }
+  # validations
+  # Don't need validations for email or password
+  # devise.rb takes care of those.
+ # ======================================================
 
-  # phone_number
-  validates :phone_number, presence: true
-  validates :phone_number, length: { minimum: 6 }
 
+ # OmniAuth =============================================
  def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
@@ -34,11 +39,8 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
     end
-
     return user
   end
+ # ======================================================
 
-  # validations
-  # Don't need validations for email or password
-  # devise.rb takes care of those.
 end
