@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-  get 'bookings/create'
-
-  get 'bookings/update'
-
-  get 'bookings/show'
-
-  get 'bookings/destroy'
+  resources :bookings, only: [:create, :show, :destroy, :update]
 
   devise_for :users
   root to: 'pages#home'
