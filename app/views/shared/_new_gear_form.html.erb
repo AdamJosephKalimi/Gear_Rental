@@ -1,0 +1,10 @@
+<%= simple_form_for @gear do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :description %>
+  <%= f.input :size %>
+  <%= f.input :address %>
+  <%= f.hidden :user_id, value: @user.id %>
+<!-- add a line to add a photo with attachionary -->
+  <%= f.button :submit %>
+<% end %>
