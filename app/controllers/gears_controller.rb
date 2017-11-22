@@ -2,7 +2,14 @@ class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gears = Gear.all
+    @gears = Gear.where.not(latitude: nil, longitude: nil)
+
+    # @gears = Gear.all
+
+    @hash = Gmaps4rails.build_markers(@gears) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
   end
 
   def new
@@ -12,13 +19,14 @@ class GearsController < ApplicationController
   def create
     @gear = Gear.new(gear_params)
     if @gear.save?
-      redirect_to "pages#home" # needs to be changed when routes are added
+      redirect_to "gears#index"
     else
       render 'new'
     end
   end
 
   def show
+    @gear_coordinates = {lat: @gear.latitude, lng: @gear.longitude }
   end
 
 
