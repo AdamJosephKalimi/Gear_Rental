@@ -10,7 +10,7 @@
    <li> <h3> Size: <%= @gear.size %></h3></li>
   </ul>
     <div class="link">
-    <%= link_to "Book it", booking_path(@gear), {class: "btn btn-primary"}  %>
+    <%= link_to "Book it", new_gear_booking_path(@gear), {class: "btn btn-primary"}  %>
     <%= link_to "Back", gears_path, {class: "btn btn-info"} %>
   </div>
 </div>

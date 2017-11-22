@@ -1,15 +1,21 @@
 class BookingsController < ApplicationController
  before_action :set_booking, only: [:show, :destroy]
 
+  def new
+    @booking = Booking.new
+  end
+
   def create
     @user=current_user
+    @gear = Gear.find(params[:gear_id])
     @booking = Booking.new(booking_params)
     @booking.user = @user
+    @booking.gear = @gear
     if @booking.save?
-      redirect_to "pages#home"
+      redirect_to :root
     else
       # This will send to gear page
-      redirect_to :back
+      redirect_to :new
     end
   end
 

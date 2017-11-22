@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'faker'
-
+Review.delete_all
+Booking.delete_all
+Gear.delete_all
+User.delete_all
 
 20.times do
   user = User.new(
@@ -26,7 +28,9 @@ end
     name: Faker::Vehicle.manufacture,
     description: Faker::MostInterestingManInTheWorld.quote,
     size: Faker::Number.number(3),
-    address: Faker::Address.street_address
+    address: Faker::Address.street_address,
+    user_id: User.all.sample.id,
+
     )
   gear.save!
 end
