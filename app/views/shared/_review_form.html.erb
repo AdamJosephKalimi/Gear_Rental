@@ -1,7 +1,8 @@
 <!-- Need to CONFIRM: line 4 -->
 <!-- This is the best way to connect the routes considering -->
 <!-- we want to have the review on the Gear show page -->
-<%= simple_form_for [@booking, @review] do |f| %> 
+<%= simple_form_for [@booking, @review] do |f| %>
+  <!-- Need if statements to confirm type of user (renter/leaser) -->
   <%= f.input :gear_content %>
   <%= f.input :user_content %>
   <%= f.association :bookings %>

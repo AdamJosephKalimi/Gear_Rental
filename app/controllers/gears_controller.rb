@@ -4,8 +4,6 @@ class GearsController < ApplicationController
   def index
     @gears = Gear.where.not(latitude: nil, longitude: nil)
 
-    # @gears = Gear.all
-
     @hash = Gmaps4rails.build_markers(@gears) do |flat, marker|
       marker.lat flat.latitude
       marker.lng flat.longitude
@@ -29,13 +27,23 @@ class GearsController < ApplicationController
     @gear_coordinates = {lat: @gear.latitude, lng: @gear.longitude }
   end
 
+  def search
+    # need search functionality
+    @gears = Gear.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@gears) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
+  end
+
 
   def edit
   end
 
   def update
     if @gear.save?
-      redirect_to "pages#home" # needs to be changed when routes are added
+      redirect_to "gears#index" #
     else
       render 'edit'
     end
@@ -47,7 +55,7 @@ class GearsController < ApplicationController
 
   def destroy
     @gear.destroy
-    redirect_to "pages#home" # needs to be changed when routes are added
+    redirect_to "gears#index"
   end
 
   private
