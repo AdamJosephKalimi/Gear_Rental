@@ -3,7 +3,7 @@ class GearsController < ApplicationController
 
 
   def index
-    @gear = Gear.all
+    @gears = Gear.all
   end
 
   def new
