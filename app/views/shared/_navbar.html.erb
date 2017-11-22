@@ -4,18 +4,21 @@
     <img src="<%= image_path 'logo.png', crop: :fill %>" alt="logo">
   </a>
 
-  <form>
-    <%= simple_form_for(search_gears_path) do %>
-      <%= text_field_tag :term %>
-      <%= submit_tag 'Search' %>
-    <% end %>
-  </form>
+  <%= link_to "Search", search_gears_path  %>
+
+ <!--  <form> this currently doesn't redirect, can't us it for now
+    <%#= simple_form_for :term, url: search_gears_path(:term) do |f|%>
+      <%#= f.input :term %>
+      <%#= f.submit %>
+      <%# redirect_to 'search_gears_path' %>
+    <%# end %>
+  </form> -->
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <%= link_to "Add some gear", new_gear_path, {class: "btn btn-success"}  %>
+    <%= link_to "Add Gear", new_gear_path  %>
 
-    <a href="/dashboard" class="navbar-wagon-item navbar-wagon-link">Profile</a>
-    <a href="/users/sign_in" class="navbar-wagon-item navbar-wagon-link">Sign In</a>
+    <%= link_to "Profile", dashboard_path  %>
+    <%= link_to "Sign In", user_registration_path  %>
     <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
