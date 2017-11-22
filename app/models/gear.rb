@@ -25,4 +25,11 @@ class Gear < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  def self.search(term)
+    if term
+      where('name LIKE ?', "%#{term}%").order('id DESC')
+    else
+      order('id DESC')
+    end
+  end
 end

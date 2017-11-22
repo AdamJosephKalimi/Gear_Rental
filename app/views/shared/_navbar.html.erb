@@ -4,7 +4,12 @@
     <img src="<%= image_path 'logo.png', crop: :fill %>" alt="logo">
   </a>
 
-  <%= link_to "Search", search_gears_path  %>
+  <%#= link_to "Search", search_gears_path  %>
+
+  <%= form_tag(search_gears_path, method: :get) do %>
+    <%= text_field_tag :term%>
+    <%= submit_tag "Search", name: nil %>
+  <% end %>
 
  <!--  <form> this currently doesn't redirect, can't us it for now
     <%#= simple_form_for :term, url: search_gears_path(:term) do |f|%>
@@ -18,7 +23,7 @@
     <%= link_to "Add Gear", new_gear_path  %>
 
     <%= link_to "Profile", dashboard_path  %>
-    <%= link_to "Sign In", user_registration_path  %>
+    <%= link_to "Sign In", new_user_registration_path  %>
     <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>

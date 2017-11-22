@@ -11,6 +11,8 @@ Booking.delete_all
 Gear.delete_all
 User.delete_all
 
+categories = ["mountain bike", "road bike", "windsurf sails", "windsurf board", "kite board", "skis" ]
+
 20.times do
   user = User.new(
     email: Faker::Internet.email,
@@ -24,7 +26,7 @@ end
 
 20.times do
   gear = Gear.new(
-    category: Faker::Hacker.abbreviation,
+    category: categories.sample,
     name: Faker::Vehicle.manufacture,
     description: Faker::MostInterestingManInTheWorld.quote,
     size: Faker::Number.number(3),
