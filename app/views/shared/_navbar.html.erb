@@ -4,6 +4,12 @@
     <img src="<%= image_path 'logo.png', crop: :fill %>" alt="logo">
   </a>
 
+  <form>
+    <%= simple_form_for(search_gears_path) do %>
+      <%= text_field_tag :term %>
+      <%= submit_tag 'Search' %>
+    <% end %>
+  </form>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <%= link_to "Add some gear", new_gear_path, {class: "btn btn-success"}  %>
