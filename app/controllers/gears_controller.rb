@@ -9,6 +9,8 @@ class GearsController < ApplicationController
       marker.lat flat.latitude
       marker.lng flat.longitude
     end
+
+    search_gear
   end
 
   def new
@@ -29,7 +31,8 @@ class GearsController < ApplicationController
   end
 
   def search
-    # need search functionality
+    search_gear
+
     @gears = Gear.where.not(latitude: nil, longitude: nil)
 
     @hash = Gmaps4rails.build_markers(@gears) do |flat, marker|
@@ -60,11 +63,15 @@ class GearsController < ApplicationController
 
   private
 
+  def search_gear
+    @gears = Gear.search(params[:term])
+  end
+
   def set_gear
     @gear = Gear.find(params[:id])
   end
 
   def gear_params
-    params.require(:gear).permit(:name, :size, :description, :address, :category)
+    params.require(:gear).permit(:name, :size, :description, :address, :category, :term)
   end
 end
