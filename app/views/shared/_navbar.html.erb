@@ -4,11 +4,18 @@
     <img src="<%= image_path 'logo.png', crop: :fill %>" alt="logo">
   </a>
 
+  <form>
+    <%= simple_form_for(search_gears_path) do %>
+      <%= text_field_tag :term %>
+      <%= submit_tag 'Search' %>
+    <% end %>
+  </form>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <%= link_to "Add some gear", new_gear_path, {class: "btn btn-success"}  %>
 
     <a href="/dashboard" class="navbar-wagon-item navbar-wagon-link">Profile</a>
+    <a href="/gears/search" class="navbar-wagon-item navbar-wagon-link">Search</a>
     <a href="/users/sign_in" class="navbar-wagon-item navbar-wagon-link">Sign In</a>
     <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
