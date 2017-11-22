@@ -11,7 +11,7 @@ class User < ApplicationRecord
   # username
   validates :username, presence: true
   # # validates :username, length: { minimum: 6 }
-  validates :username, uniqueness: true
+  # validates :username, uniqueness: true
   # # phone_number
   validates :phone_number, presence: true
   validates :phone_number, length: { minimum: 6 }

@@ -10,7 +10,9 @@
 
     <a href="/dashboard" class="navbar-wagon-item navbar-wagon-link">Profile</a>
     <a href="/users/sign_in" class="navbar-wagon-item navbar-wagon-link">Sign In</a>
-    <a href="/users/sign_out" class="navbar-wagon-item navbar-wagon-link">Log Out</a>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
@@ -19,7 +21,9 @@
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="/dashboard">Profile</a></li>
           <li><a href="/users/sign_in">Sign In</a></li>
-          <li><a href="/users/sign_out">Log Out</a></li>
+          <li><%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %></li>
         </ul>
       </div>
     </div>
