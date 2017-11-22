@@ -1,6 +1,7 @@
 class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @gears = Gear.where.not(latitude: nil, longitude: nil)
 
@@ -37,7 +38,6 @@ class GearsController < ApplicationController
     end
   end
 
-
   def edit
   end
 
@@ -68,4 +68,3 @@ class GearsController < ApplicationController
     params.require(:gear).permit(:name, :size, :description, :address, :category)
   end
 end
-

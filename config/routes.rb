@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'gears#index'
+
+  get '/dashboard', to: "pages#dashboard"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :gears do
     collection do
@@ -18,5 +20,7 @@ Rails.application.routes.draw do
   end
 
 #get '/gears/search', to: 'gears#search', as: 'search'
+
+
 
 end
