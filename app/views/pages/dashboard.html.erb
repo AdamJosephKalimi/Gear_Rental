@@ -1,17 +1,15 @@
 
 <div class='container'>
   <div class='row'>
-      <%=@user.each do |x| %>
         <div class="col col-xs-12">
-          <%= x.username %>
-          <%= x.facebook_picture_url %>
-          <%= x.first_name %> <%= x.last_name %>
-          <%= x.phone_number %>
+          <%= @user.username %>
+          <%= @user.email %>
+          <%= @user.username %>
+          <%= @user.phone_number %>
           <%= link_to 'Edit', edit_user_registration_path %>
         </div>
-      <% end %>
     <!-- this will probably not work as we may not have connection for user to gear -->
-     <% @user.gear.each do |g| %>
+     <% @user.gears.each do |g| %>
       <div class="col col-xs-12 col-sm-6 col-md-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "mb-#{rand(1..5)}.jpg" %>)">
         <div class="card-name"><%= g.name %></div>
@@ -29,11 +27,11 @@
     <!--   ===========================================================   -->
 
     <!-- add in reviews - probably also break the code -->
-    <%= @user.gear.reviews each do |r|%>
+    <%#= @user.gear.reviews each do |r|%>
       <div class="col col-xs-12">
-        <%= r.gear_content %>
+        <%#= r.gear_content %>
       </div>
-    <% end %>
+    <%# end %>
     </div>
   </div>
 </div>
