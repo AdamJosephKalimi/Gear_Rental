@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
+      <h2>Book Your Gear!</h2>
+
+      <%= simple_form_for[@gear, @booking] do |f| %>
+        <div class="form-inputs">
+          <%= f.input :start_date, required: true %>
+          <%= f.input :end_date, required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Book Now" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
