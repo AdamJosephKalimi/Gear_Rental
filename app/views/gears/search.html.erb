@@ -1,16 +1,16 @@
-<div class="search_container">
+<div class="container">
 
-    <div class="row">
+  <div class="row-fluid">
 
-    <div class="left col-xs-8">
+    <div class="left col-md-6">
         <% @gears.each do |g|%>
          <%= render 'gear_card', g: g, card_search: true %>
         <% end %>
 
-  </div>
+    </div>
 
-  <div class="right col-xs-4">
-  <div id="map"></div>
+  <div class="right col-md-6">
+  <div id="map" style="width: 100%; height: 600px;"></div>
     <% content_for(:after_js) do %>
       <%= javascript_tag do %>
         var handler = Gmaps.build('Google');
@@ -19,7 +19,7 @@
           handler.bounds.extendWith(markers);
           handler.fitMapToBounds();
           if (markers.length == 0) {
-            handler.getMap().setZoom(2);
+            handler.getMap().setZoom(4);
           } else if (markers.length == 1) {
             handler.getMap().setZoom(14);
           }

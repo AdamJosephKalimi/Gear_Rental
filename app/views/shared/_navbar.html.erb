@@ -5,8 +5,8 @@
   <% end %>
 
   <%= form_tag(search_gears_path, method: :get) do %>
-    <%= text_field_tag :term%>
-    <%= submit_tag "Search", name: nil %>
+    <%= text_field_tag :term, nil, placeholder: "search"%>
+    <%= submit_tag "Search", name: nil, style: "display: none" %>
   <% end %>
 
   <!-- Right Navigation -->
