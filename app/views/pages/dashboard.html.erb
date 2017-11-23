@@ -21,7 +21,32 @@
           </div>
         </div>
       </div>
+      <ul>
+        <li><%= simple_form_for @booking do |f| %>
+          <%= f.hidden_field :active, value: "true" %>
+          <%= f.button :confirm %>
+        <% end -%></li>
+        <li><%= simple_form_for @booking do |f| %>
+          <%= f.hidden_field :active, value: "false" %>
+          <%= f.button :decline %>
+        <% end -%></li>
+      </ul>
      <% end %>
     </div>
   </div>
 </div>
+
+
+bookings = current_user.gears.map{|g| g.bookings}.flatten
+
+bookings.each do |booking|
+
+if booking.active.nil, show this message
+"User has reuqested to borrow you #{gear_id}
+
+
+else
+next
+end
+
+end
