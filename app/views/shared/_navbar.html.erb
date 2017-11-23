@@ -1,13 +1,22 @@
 <div class="navbar-wagon">
-  <!-- Logo -->
+  <!-- Home Button -->
+  <%= link_to root_path, class: "navbar-home-button" do %>
+    Home
+  <% end %>
+
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+      <% image_tag "logo.png" %>
   <% end %>
 
   <%= form_tag(search_gears_path, method: :get) do %>
     <%= text_field_tag :term%>
-    <%= submit_tag "Search", name: nil %>
+    <%= submit_tag "Submiat", name: nil %>
   <% end %>
+
+<!--   <%= form_tag(search_gears_path, method: :get) do %>
+    <%= text_field_tag :term%>
+    <%= submit_tag "Search", name: nil %>
+  <% end %> -->
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
