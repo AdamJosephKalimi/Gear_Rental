@@ -3,7 +3,8 @@ class Gear < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
 
-  # validations
+  # photo upload
+  has_attachments :photos, maximum: 3
 
   # category
   validates :category, presence: true

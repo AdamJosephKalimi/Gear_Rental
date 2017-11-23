@@ -9,6 +9,11 @@ gem 'rails', '5.0.6'
 gem 'redis'
 gem 'faker'
 
+# attachinary
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+
 # geocode gems
 gem "geocoder"
 gem "coffee-rails"

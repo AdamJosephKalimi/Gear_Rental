@@ -20,8 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
-#get '/gears/search', to: 'gears#search', as: 'search'
-
+  # Attachinary
+  mount Attachinary::Engine => "/attachinary"
 
 
 end
