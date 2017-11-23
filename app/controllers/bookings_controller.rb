@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
 
       # -2 to lender saying "confirmation pending"
       BookingMailer.awaiting_confirmation(@booking).deliver_now
+
       redirect_to :root
     else
       # This will send to gear page

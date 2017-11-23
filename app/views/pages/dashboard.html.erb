@@ -1,38 +1,27 @@
 
 <div class='container'>
   <div class='row'>
-        <div class="col col-xs-12">
-          <%= @user.username %>
-          <%= @user.email %>
-          <%= @user.username %>
-          <%= @user.phone_number %>
-          <%= link_to 'Edit', edit_user_registration_path %>
-          <%= link_to "Add Gear", new_gear_path  %>
-        </div>
-    <!-- this will probably not work as we may not have connection for user to gear -->
-     <% @user.gears.each do |g| %>
-      <div class="col col-xs-12 col-sm-6 col-md-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "mb-#{rand(1..5)}.jpg" %>)">
-        <div class="card-name"><%= g.name %></div>
-        <div class="card-description">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad optio porro dolor harum iusto nulla accusamus facilis, facere, fugiat numquam temporibus nesciunt dignissimos, consequatur iste eum quis explicabo assumenda id.</p>
-        </div>
+      <div class="col col-xs-12">
+        <ul>
+          <li><%= @user.username %></li>
+          <li><%= @user.email %></li>
+          <li><%= @user.phone_number %></li>
+          <li><%= link_to 'Edit', edit_user_registration_path %></li>
+          <li><%= link_to "Add Gear", new_gear_path  %></li>
+        </ul>
       </div>
     </div>
-    <% end %>
-
-    <!-- Route from the user to the gear -->
-    <!--   ===========================================================   -->
-    <!-- Route from the user to the gear to the review -->
-    <!--   We want to display the reviews on the user's page AND on the gear page   -->
-    <!--   ===========================================================   -->
-
-    <!-- add in reviews - probably also break the code -->
-    <%#= @user.gear.reviews each do |r|%>
-      <div class="col col-xs-12">
-        <%#= r.gear_content %>
+    <div class="row">
+     <% @user.gears.each do |g| %>
+      <div class="col col-xs-12 col-sm-6 col-md-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path g.photos[0].path, height: 400, width: 600, crop: :fill  %>)">
+        <div class="card-name"><%= g.name %></div>
+          <div class="card-description">
+            <p> <%= g.description %></p>
+          </div>
+        </div>
       </div>
-    <%# end %>
+     <% end %>
     </div>
   </div>
 </div>
