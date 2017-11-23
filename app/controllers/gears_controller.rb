@@ -1,16 +1,13 @@
 class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @gears = Gear.where.not(latitude: nil, longitude: nil)
 
-    @hash = Gmaps4rails.build_markers(@gears) do |flat, marker|
-      marker.lat flat.latitude
-      marker.lng flat.longitude
+    @hash = Gmaps4rails.build_markers(@gears) do |gears, marker|
+      marker.lat gears.latitude
+      marker.lng gears.longitude
     end
-
-    search_gear
   end
 
   def new
@@ -37,13 +34,11 @@ class GearsController < ApplicationController
   end
 
   def search
-    search_gear
-
-    @gears = Gear.where.not(latitude: nil, longitude: nil)
-
-    @hash = Gmaps4rails.build_markers(@gears) do |flat, marker|
-      marker.lat flat.latitude
-      marker.lng flat.longitude
+    @gears = Gear.where("name ILIKE :term OR category ILIKE :term", term: "%#{params[:term]}%").order('id DESC').where.not(latitude: nil, longitude: nil)
+   # @gears = Gear..search(params[:term])
+    @hash = Gmaps4rails.build_markers(@gears) do |gears, marker|
+      marker.lat gears.latitude
+      marker.lng gears.longitude
     end
   end
 
@@ -51,8 +46,8 @@ class GearsController < ApplicationController
   end
 
   def update
-    if @gear.save?
-      redirect_to "gears#index" #
+    if @gear.save
+      redirect_to gear_path
     else
       render 'edit'
     end
@@ -64,20 +59,16 @@ class GearsController < ApplicationController
 
   def destroy
     @gear.destroy
-    redirect_to "gears#index"
+    redirect_to gears_path
   end
 
   private
-
-  def search_gear
-    @gears = Gear.search(params[:term])
-  end
 
   def set_gear
     @gear = Gear.find(params[:id])
   end
 
   def gear_params
-    params.require(:gear).permit(:name, :size, :description, :address, :category, :term, photos: [], :price)
+    params.require(:gear).permit(:name, :size, :description, :address, :category, :term, :price, photos: [])
   end
 end
