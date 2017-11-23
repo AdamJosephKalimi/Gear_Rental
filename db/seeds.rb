@@ -29,6 +29,7 @@ end
     category: categories.sample,
     name: Faker::Vehicle.manufacture,
     description: Faker::MostInterestingManInTheWorld.quote,
+    price: Faker::Number.between(20, 88),
     size: Faker::Number.number(3),
     address: Faker::Address.street_address,
     user_id: User.all.sample.id,

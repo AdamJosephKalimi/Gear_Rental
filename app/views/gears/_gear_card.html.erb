@@ -2,7 +2,7 @@
   <div class="col col-xs-12 col-sm-6 col-md-4">
     <div class="card <%= card_search ? 'card-search' : '' %>" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= g.photos.blank? ? rand_img : (cl_image_path g.photos[0].path, height: 400, width: 600, crop: :fill)%>') ">
     <div class="card-name"><%= g.name %></div>
-    <div class="card-description">
+    <div class="card-description"> $<%= g.price %>
     <p><%= link_to "This Gear", gear_path(g), {class: "btn btn-primary btn-sm"}  %>
     Check it out</p>
     </div>
