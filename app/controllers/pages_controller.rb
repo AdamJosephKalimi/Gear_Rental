@@ -5,16 +5,12 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
+    @unconfirmed_bookings = Booking.joins(:gear).where(user: current_user).where("start_date > ?", Date.today)
   end
 end
 
 
-# bookings = current_user.gears.map{|g| g.bookings}.flatten
 
-# bookings.each do |booking|
-
-# if booking.active.nil, show this message
-# "User has reuqested to borrow you #{gear_id}"
 
 # 2 simple form with
 # simple_form_for(@booking)
