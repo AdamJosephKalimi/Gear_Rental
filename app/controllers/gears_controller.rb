@@ -16,6 +16,7 @@ class GearsController < ApplicationController
   def new
     @gear = Gear.new
     @user = current_user
+    @category = ["mountain bike", "road bike", "windsurf sails", "windsurf board", "kite board", "skis"]
   end
 
   def create
