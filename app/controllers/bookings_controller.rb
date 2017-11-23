@@ -13,6 +13,12 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @booking.gear = @gear
     if @booking.save
+      # -1 to renter saying "awaiting confirmation"
+      BookingMailer.pending(@user).deliver_now
+
+      # -2 to lender saying "confirmation pending"
+      BookingMailer.awaiting_confirmation(@booking).deliver_now
+
       redirect_to :root
     else
       # This will send to gear page

@@ -11,11 +11,11 @@ class UserMailer < ApplicationMailer
     mail to: @user.email, subject: "Welcome to my site #{@user.email}", from: "Adam.@Gears.com"
   end
 
-  def create_gear(gear(need to creat this))
-    @gear = gear
-    mail to: @gear.user.email, subject: "Thank you for adding your gear!" from: "Adam.@Gears.com"
-  end
-end
+#   def create_gear(gear)
+#     @gear = gear
+#     mail to: @gear.user.email, subject: "Thank you for adding your gear!" from: "Adam.@Gears.com"
+#   end
+# end
 
 # create gears mailer gears_create
 
@@ -33,4 +33,4 @@ end
 #       render :new
 #     end
 #   end
-# end
+end
