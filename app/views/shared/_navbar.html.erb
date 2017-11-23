@@ -4,19 +4,10 @@
     Home
   <% end %>
 
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <% image_tag "logo.png" %>
-  <% end %>
-
   <%= form_tag(search_gears_path, method: :get) do %>
-    <%= text_field_tag :term, nil, placeholder: "search"%>
-    <%= submit_tag "Search", name: nil, style: "display: none" %>
+    <%= text_field_tag :term, nil, placeholder: "Type Something"%>
+    <%= submit_tag " ", class: "navbar-submit-button", name: nil, style: "background-image: url('#{image_path "logo.png"}'); background-size: cover; border: none;  width: 38px; height: 38px;" %>
   <% end %>
-
-<!--   <%= form_tag(search_gears_path, method: :get) do %>
-    <%= text_field_tag :term%>
-    <%= submit_tag "Search", name: nil %>
-  <% end %> -->
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
