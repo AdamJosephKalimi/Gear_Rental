@@ -4,15 +4,7 @@
 
     <div class="left col-xs-8">
         <% @gears.each do |g|%>
-         <div class="col col-xs-6">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "mb-#{rand(1..5)}.jpg" %>)">
-            <div class="card-name"><%= g.name %></div>
-            <div class="card-description">
-            <p><%= link_to "This Gear", gear_path(g), {class: "btn btn-primary btn-sm"}  %>
-            Check it out</p>>
-          </div>
-        </div>
-        </div>
+         <%= render 'gear_card', g: g, card_search: true %>
         <% end %>
 
   </div>

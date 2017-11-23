@@ -3,7 +3,13 @@
   <div class="row">
 
   <div class="left col-sm-6">
+  <% if @gear.photos? %>
+    <% @gear.photos.each do |photo| %>
+      <%= cl_image_tag photo.path, width: 600, height: 400, crop: :fill %>
+    <% end %>
+  <% else %>
     <%= image_tag "mb-#{rand(1..5)}.jpg"%>
+  <% end %>
   <h1><%= @gear.name%></h1>
   <ul>
     <li> <h3> Description: <%= @gear.description %></h3></li>
@@ -22,6 +28,7 @@
       <li><%= @user.username %></li>
       <li><%= @user.email %></li>
       <li><%= @user.phone_number %></li>
+      <li><%= @gear.address %></li>
     </ul>
     </div>
   </div>

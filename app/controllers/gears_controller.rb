@@ -15,12 +15,17 @@ class GearsController < ApplicationController
 
   def new
     @gear = Gear.new
+    @user = current_user
   end
 
   def create
+    @user = current_user
     @gear = Gear.new(gear_params)
-    if @gear.save?
-      redirect_to "gears#index"
+    @gear.user = @user
+
+    if @gear.save
+      redirect_to dashboard_path
+      flash[:notice] = "Success"
     else
       render 'new'
     end
@@ -72,6 +77,6 @@ class GearsController < ApplicationController
   end
 
   def gear_params
-    params.require(:gear).permit(:name, :size, :description, :address, :category, :term)
+    params.require(:gear).permit(:name, :size, :description, :address, :category, :term, photos: [])
   end
 end

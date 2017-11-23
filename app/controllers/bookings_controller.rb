@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = @user
     @booking.gear = @gear
-    if @booking.save?
+    if @booking.save
       redirect_to :root
     else
       # This will send to gear page
