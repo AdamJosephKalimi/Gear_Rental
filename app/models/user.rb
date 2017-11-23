@@ -4,6 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
+after_create :deliver_welcome_email
+
+def deliver_welcome_email
+  UserMailer.welcome(self).deliver_now
+
+end
+
  # Validations ==========================================
   has_many :reviews, through: :bookings
   has_many :bookings
