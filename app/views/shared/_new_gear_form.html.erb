@@ -4,7 +4,8 @@
   <%= f.input :description %>
   <%= f.input :size %>
   <%= f.input :address %>
-  <%= f.hidden :user_id, value: @user.id %>
+  <%#= f.hidden :user_id, value: @user.id %>
+  <!-- This isn't working! ID is nil! -->
 <!-- add a line to add a photo with attachionary -->
   <%= f.button :submit %>
 <% end %>
