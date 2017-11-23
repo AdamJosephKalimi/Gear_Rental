@@ -7,8 +7,7 @@ class Gear < ApplicationRecord
   has_attachments :photos, maximum: 3
 
   # category
-  validates :category, presence: true
-
+  validates :category, presence: true, inclusion: {in: ["mountain bike", "road bike", "windsurf sails", "windsurf board", "kite board", "skis"]}
   # name
   validates :name, presence: true
 

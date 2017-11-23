@@ -35,6 +35,9 @@ end
     user_params[:facebook_picture_url] = auth.info.image
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
+# TEMPORARY FIX: this way can log in via facebook
+    user_params[:username] = auth.info.email
+    user_params[:phone_number] = "please enter a valid phone number"
     user_params = user_params.to_h
 
     user = User.find_by(provider: auth.provider, uid: auth.uid)
