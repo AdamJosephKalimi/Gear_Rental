@@ -1,6 +1,6 @@
 <% rand_img = image_path "mb-#{rand(1..5)}.jpg" %>
 <div class="col col-xs-12 col-sm-6 col-md-4">
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= g.photos.blank? ? rand_img : (cl_image_path g.photos[0].path)%>') ">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= g.photos.blank? ? rand_img : (cl_image_path g.photos[0].path)  %>') ">
     <div class="card-name">
       <%= g.name %>
     </div>
