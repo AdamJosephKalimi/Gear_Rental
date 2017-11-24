@@ -1,11 +1,11 @@
 <div class="navbar-wagon">
   <!-- Home Button -->
   <%= link_to root_path, class: "navbar-home-button" do %>
-    Home
+    GearsNshit
   <% end %>
 
   <%= form_tag(search_gears_path, method: :get) do %>
-    <%= text_field_tag :term, nil, placeholder: "Search"%>
+    <%= text_field_tag :term, nil, placeholder: "Search for Expensive Shit"%>
     <%= submit_tag " ", class: "navbar-submit-button", name: nil, style: "background-image: url('#{image_path "logo.png"}'); background-size: cover; border: none;  width: 38px; height: 38px;" %>
   <% end %>
 
@@ -16,7 +16,6 @@
 
       <!-- Links when logged in -->
       <%= link_to "My Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
