@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 20171123071913) do
     t.integer  "gear_id"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "confirmed",  default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean  "active"
     t.index ["gear_id"], name: "index_bookings_on_gear_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
