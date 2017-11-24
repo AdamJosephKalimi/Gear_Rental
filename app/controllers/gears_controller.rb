@@ -1,5 +1,5 @@
 class GearsController < ApplicationController
-  before_action :set_gear, only: [:show, :edit, :update, :destroy, :available]
+  before_action :set_gear, only: [:show, :edit, :update, :destroy]
 
   def index
     @gears = Gear.where.not(latitude: nil, longitude: nil)
