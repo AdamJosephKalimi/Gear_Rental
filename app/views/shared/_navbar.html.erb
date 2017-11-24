@@ -1,12 +1,12 @@
 <div class="navbar-wagon">
   <!-- Home Button -->
   <%= link_to root_path, class: "navbar-home-button" do %>
-    Home
+    <%= image_tag "logo.png", style: "width: 30px; height: 30px;" %>
   <% end %>
 
   <%= form_tag(search_gears_path, method: :get) do %>
-    <%= text_field_tag :term, nil, placeholder: "Search"%>
-    <%= submit_tag " ", class: "navbar-submit-button", name: nil, style: "background-image: url('#{image_path "logo.png"}'); background-size: cover; border: none;  width: 38px; height: 38px;" %>
+    <%= text_field_tag :term, nil, placeholder: "baller mountain bike?"%>
+    <%= submit_tag 'Search fo some Gearz'  %>
   <% end %>
 
   <!-- Right Navigation -->

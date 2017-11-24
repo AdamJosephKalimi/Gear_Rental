@@ -33,9 +33,11 @@
         <div class="card-name"><%= g.name %></div>
           <div class="card-description">
             <p> <%= g.description %></p>
-            <% if g.bookings.last.confirmed == true  %>
-            <h4>Next Booking: <%= g.bookings.last.start_date.strftime("%m/%d/%h") %></h4>
-            <h4>Until: <%= g.bookings.last.end_date.strftime("%m/%d/%h") %></h4>
+            <% unless g.bookings.empty? %>
+              <% if g.bookings.last.confirmed == true  %>
+              <h4>Next Booking: <%= g.bookings.last.start_date.strftime("%m/%d/%h") %></h4>
+              <h4>Until: <%= g.bookings.last.end_date.strftime("%m/%d/%h") %></h4>
+              <% end %>
             <% end %>
           </div>
         </div>
