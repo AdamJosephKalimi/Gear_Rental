@@ -1,0 +1,11 @@
+<%= simple_form_for @gear do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category, collection: @category %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :size %>
+  <%= f.input :address %>
+  <%= f.input :photos, as: :attachinary  %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.button :submit %>
+<% end %>
