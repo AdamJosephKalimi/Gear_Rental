@@ -7,7 +7,7 @@
           <li>Phone Number: <%= @user.phone_number %></li>
           <li><%= link_to 'Edit my Info', edit_user_registration_path %></li>
           <li><%= link_to "Add some Gear", new_gear_path  %></li>
-          <li><% @unconfirmed_bookings.each do |booking| %>
+          <% @unconfirmed_bookings.each do |booking| %>
               <%= booking.start_date %> ;
               <%= booking.end_date %>
               <li><%= simple_form_for [booking.gear, booking]  do |f| %>
@@ -19,7 +19,7 @@
               <%= f.button :submit, "Decline" %></li>
               <% end %>
               <%= link_to 'Bookings', edit_gear_booking_path %>
-            <% end %></li>
+            <% end %>
         </ul>
       </div>
     </div>
@@ -27,7 +27,7 @@
     <% rand_img = image_path "mb-#{rand(1..5)}.jpg" %>
      <% @user.gears.each do |g| %>
       <div class="col col-xs-12 col-sm-6 col-md-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= g.photos.blank? ? rand_img : (cl_image_path g.photos[0].path, height: 400, width: 600, crop: :fill)%>'')">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= g.photos.blank? ? rand_img : (cl_image_path g.photos[0].path, height: 400, width: 600, crop: :fill)%>')">
         <div class="card-name"><%= g.name %></div>
           <div class="card-description">
             <p> <%= g.description %></p>

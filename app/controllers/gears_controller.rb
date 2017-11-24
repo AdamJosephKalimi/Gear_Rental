@@ -34,7 +34,7 @@ class GearsController < ApplicationController
   end
 
   def search
-    @gears = Gear.where("name ILIKE :term OR category ILIKE :term", term: "%#{params[:term]}%").order('id DESC').where.not(latitude: nil, longitude: nil)
+    @gears = Gear.where("name ILIKE :term OR category ILIKE :term OR address ILIKE :term", term: "%#{params[:term]}%").order('id DESC').where.not(latitude: nil, longitude: nil)
    # @gears = Gear..search(params[:term])
     @hash = Gmaps4rails.build_markers(@gears) do |gears, marker|
       marker.lat gears.latitude

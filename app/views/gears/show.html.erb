@@ -4,10 +4,11 @@
   <div class="col col-md-6">
   <h2><%= @gear.name%></h1>
   <ul>
-    <li> <h3> Description: <%= @gear.description %></h3></li>
-    <li> <h3> Size: <%= @gear.size %></h3></li>
-    <li> <h3> Day rental price: $<%= @gear.price %></h3></li>
-    <li> <h3> Category: <%= @gear.category %></h3></li>
+    <li> <h4> Description: <%= @gear.description %></h4></li>
+    <li> <h4> Size: <%= @gear.size %></h4></li>
+    <li> <h4> Day rental price: $<%= @gear.price %></h4></li>
+    <li> <h4> Category: <%= @gear.category %></h4></li>
+    <li> <h4> Address: <%= @gear.address %></h4></li>
   </ul>
 
   <% if @gear.photos? %>
@@ -22,10 +23,10 @@
   <% user_id =  @gear.user_id %>
   <% @user = User.find(user_id)  %>
   <ul>
-    <li><%= @user.username %></li>
-    <li><%= @user.email %></li>
-    <li><%= @user.phone_number %></li>
-    <li><%= @gear.address %></li>
+    <li>Username:<%= @user.username %></li>
+    <li>Lender's email address<%= @user.email %></li>
+    <li>Lender's phone number <%= @user.phone_number %></li>
+    <li>Gear address <%= @gear.address %></li>
   </ul>
   <div class="link">
       <%= link_to "Book it", new_gear_booking_path(@gear), {class: "btn btn-primary"}  %>
