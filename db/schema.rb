@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123071913) do
+ActiveRecord::Schema.define(version: 20171124002448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 20171123071913) do
     t.integer  "gear_id"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "confirmed",  default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean  "active"
     t.index ["gear_id"], name: "index_bookings_on_gear_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 20171123071913) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "bookings", "gears"
+  add_foreign_key "bookings", "gears", on_delete: :cascade
   add_foreign_key "bookings", "users"
   add_foreign_key "gears", "users"
-  add_foreign_key "reviews", "bookings"
+  add_foreign_key "reviews", "bookings", on_delete: :cascade
 end

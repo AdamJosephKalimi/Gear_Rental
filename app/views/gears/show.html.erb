@@ -24,11 +24,12 @@
     <li><%= @user.phone_number %></li>
     <li><%= @gear.address %></li>
   </ul>
-
   <div class="link">
       <%= link_to "Book it", new_gear_booking_path(@gear), {class: "btn btn-primary"}  %>
       <%= link_to "Back", gears_path, {class: "btn btn-info"} %>
-      <%= link_to "Edit this Gear", edit_gear_path, {class: "btn btn-info"} %>
-      <%= link_to "Delete it Gear", gear_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <% if current_user.id == @gear.user_id%>
+        <%= link_to "Edit this Gear", edit_gear_path, {class: "btn btn-info"} %>
+        <%= link_to "Delete it", gear_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <% end %>
     </div>
 </div>
