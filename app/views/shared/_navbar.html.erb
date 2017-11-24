@@ -5,7 +5,7 @@
   <% end %>
 
   <%= form_tag(search_gears_path, method: :get) do %>
-    <%= text_field_tag :term, nil, placeholder: "Search for Expensive Shit"%>
+    <%= text_field_tag :term, nil, placeholder: "Search for Expensive Gears"%>
     <%= submit_tag " ", class: "navbar-submit-button", name: nil, style: "background-image: url('#{image_path "logo.png"}'); background-size: cover; border: none;  width: 38px; height: 38px;" %>
   <% end %>
 
