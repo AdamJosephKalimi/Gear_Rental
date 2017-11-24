@@ -1,10 +1,11 @@
 <div class="container">
   <h2><%= @gear.name%></h2>
   <ul>
-    <li><h3> Description: <%= @gear.description %></h3></li>
-    <li><h3> Size: <%= @gear.size %></h3></li>
-    <li><h3> Day rental price: $<%= @gear.price %></h3></li>
-    <li><h3> Category: <%= @gear.category %></h3></li>
+    <li> <h4> Description: <%= @gear.description %></h4></li>
+    <li> <h4> Size: <%= @gear.size %></h4></li>
+    <li> <h4> Day rental price: $<%= @gear.price %></h4></li>
+    <li> <h4> Category: <%= @gear.category %></h4></li>
+    <li> <h4> Address: <%= @gear.address %></h4></li>
   </ul>
 
   <% if @gear.photos? %>
@@ -19,10 +20,10 @@
   <% @user = User.find(user_id) %>
 
   <ul>
-    <li><%= @user.username %></li>
-    <li><%= @user.email %></li>
-    <li><%= @user.phone_number %></li>
-    <li><%= @gear.address %></li>
+    <li>Username:<%= @user.username %></li>
+    <li>Lender's email address<%= @user.email %></li>
+    <li>Lender's phone number <%= @user.phone_number %></li>
+    <li>Gear address <%= @gear.address %></li>
   </ul>
 
   <div class="link">
