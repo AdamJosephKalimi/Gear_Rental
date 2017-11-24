@@ -1,13 +1,10 @@
-
 <div class="container">
-  <div class="row">
-  <div class="col col-md-6">
-  <h2><%= @gear.name%></h1>
+  <h2><%= @gear.name%></h2>
   <ul>
-    <li> <h3> Description: <%= @gear.description %></h3></li>
-    <li> <h3> Size: <%= @gear.size %></h3></li>
-    <li> <h3> Day rental price: $<%= @gear.price %></h3></li>
-    <li> <h3> Category: <%= @gear.category %></h3></li>
+    <li><h3> Description: <%= @gear.description %></h3></li>
+    <li><h3> Size: <%= @gear.size %></h3></li>
+    <li><h3> Day rental price: $<%= @gear.price %></h3></li>
+    <li><h3> Category: <%= @gear.category %></h3></li>
   </ul>
 
   <% if @gear.photos? %>
@@ -17,16 +14,17 @@
   <% else %>
     <%= image_tag "mb-#{rand(1..5)}.jpg"%>
   <% end %>
-  </div>
-  <div class="col col-md-6">
+
   <% user_id =  @gear.user_id %>
-  <% @user = User.find(user_id)  %>
+  <% @user = User.find(user_id) %>
+
   <ul>
     <li><%= @user.username %></li>
     <li><%= @user.email %></li>
     <li><%= @user.phone_number %></li>
     <li><%= @gear.address %></li>
   </ul>
+
   <div class="link">
       <%= link_to "Book it", new_gear_booking_path(@gear), {class: "btn btn-primary"}  %>
       <%= link_to "Back", gears_path, {class: "btn btn-info"} %>
@@ -34,5 +32,5 @@
         <%= link_to "Edit this Gear", edit_gear_path, {class: "btn btn-info"} %>
         <%= link_to "Delete it", gear_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
       <% end %>
-    </div>
+  </div>
 </div>
