@@ -21,6 +21,21 @@
               <%= link_to 'Bookings', edit_gear_booking_path %>
             <% end %>
         </ul>
+        <% @unconfirmed_bookings.each do |booking| %>
+          <%= booking.start_date %> ;
+          <%= booking.end_date %>
+          <%= simple_form_for [booking.gear, booking]  do |f| %>
+            <%= f.hidden_field :confirmed, value: true %>
+            <%= f.button :submit, "Confirm" %>
+          <% end %>
+
+          <%= simple_form_for [booking.gear, booking] do |f| %>
+            <%= f.hidden_field :confirmed, value: false %>
+            <%= f.button :submit, "Decline" %>
+          <% end %>
+          <%= "Yes" %>
+          <%= link_to 'Bookings', edit_gear_booking_path(booking.gear, booking) %>
+        <% end %>
       </div>
     </div>
     <div class="row">
@@ -40,19 +55,11 @@
 </div>
 
 
-<!-- Page display
+<!-- Confirming and declining bookings -->
 
-Display: Pending bookings
-Display: if the booking is confirmed, display the booking (start_date, end_date, gear name)
-Display: if the booking is unconfirmed, don't display the booking -->
+<!-- Solution 1. Create cards of all pending bookings on this page. When the owner
+clicks the card, they are taken to another page where they can confirm or
+decline the booking. -->
 
-<!-- # bookings = current_user.gears.map{|g| g.bookings}.flatten
-
-# bookings.each do |booking|
-
-@unconfirmed_bookings
-
-# if booking.active.nil, show this message
-# "User has reuqested to borrow you #{gear_id}"
-
- -->
+<!-- Solution 2. Create a new entry in the user database called "lender". This gets
+created when someone books the gear that belongs to a certain owner -->

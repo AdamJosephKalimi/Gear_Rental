@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
-    @unconfirmed_bookings = Booking.joins(:gear).where(user: current_user).where("start_date > ?", Date.today)
+    @unconfirmed_bookings = @user.gears.map{|g|g.pending_bookings}.flatten
   end
 end
 

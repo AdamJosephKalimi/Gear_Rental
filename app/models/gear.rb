@@ -24,4 +24,10 @@ class Gear < ApplicationRecord
   #geocode
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+
+
+  def pending_bookings
+    bookings.select{|b| b.confirmed.nil?}
+  end
 end
