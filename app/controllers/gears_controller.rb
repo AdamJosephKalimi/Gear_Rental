@@ -48,6 +48,7 @@ class GearsController < ApplicationController
   def update
     if @gear.save
       redirect_to gear_path
+      flash[:notice] = "Success"
     else
       render 'edit'
     end
