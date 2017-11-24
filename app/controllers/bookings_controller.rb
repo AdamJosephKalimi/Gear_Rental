@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
- before_action :set_booking, only: [:show, :update, :destroy]
+ before_action :set_booking, only: [:show, :update, :destroy, :edit]
 
   def new
     @booking = Booking.new
@@ -19,7 +19,8 @@ class BookingsController < ApplicationController
       # -2 to lender saying "confirmation pending"
       BookingMailer.awaiting_confirmation(@booking).deliver_now
 
-      redirect_to :root
+      redirect_to dashboard_path
+      flash[:notice] = "Great Success! You've booked some gear!"
     else
       # This will send to gear page
       redirect_to :new
@@ -27,7 +28,9 @@ class BookingsController < ApplicationController
   end
 
   def show
+  end
 
+  def edit
   end
 
   def destroy
