@@ -12,7 +12,6 @@
               <%= booking.start_date %> ;
               <%= booking.end_date %>
               <li><%= simple_form_for [booking.gear, booking]  do |f| %>
-                <!-- gears/3/bookings -->
               <%= f.input :confirmed, value: true %>
               <%= f.button :submit, "Confirm" %></li>
               <% end %>
@@ -20,6 +19,7 @@
               <%= f.input :confirmed, value: false %>
               <%= f.button :submit, "Decline" %></li>
               <% end %>
+              <%= link_to 'Bookings', edit_gear_booking_path %>
             <% end %></li>
         </ul>
       </div>
@@ -40,11 +40,11 @@
 </div>
 
 
-Page display
+<!-- Page display
 
 Display: Pending bookings
 Display: if the booking is confirmed, display the booking (start_date, end_date, gear name)
-Display: if the booking is unconfirmed, don't display the booking
+Display: if the booking is unconfirmed, don't display the booking -->
 
 <!-- # bookings = current_user.gears.map{|g| g.bookings}.flatten
 

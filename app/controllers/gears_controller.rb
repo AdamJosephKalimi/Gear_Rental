@@ -1,5 +1,5 @@
 class GearsController < ApplicationController
-  before_action :set_gear, only: [:show, :edit, :update, :destroy]
+  before_action :set_gear, only: [:show, :edit, :update, :destroy, :available]
 
   def index
     @gears = Gear.where.not(latitude: nil, longitude: nil)
@@ -52,10 +52,6 @@ class GearsController < ApplicationController
     else
       render 'edit'
     end
-  end
-
-  def available
-    # need method for checking availability
   end
 
   def destroy

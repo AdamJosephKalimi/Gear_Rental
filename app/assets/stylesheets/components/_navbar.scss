@@ -11,6 +11,7 @@
   position: sticky;
   top: 0;
   z-index: 2;
+  margin-bottom: 10px;
 }
 
 /* Home Button */
@@ -37,13 +38,14 @@
   justify-content: space-between;
 }
 .navbar-wagon-right a {
+  font-size: 17px;
   margin: 0px 9px;
 }
 
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 5px;
 }
 
 /* Navbar link */
